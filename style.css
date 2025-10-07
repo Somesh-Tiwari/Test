@@ -303,3 +303,28 @@ tbody tr:hover { background: rgba(255,255,255,.06); }
   from { opacity: 0; transform: translateY(8px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+/* Centering overrides per request */
+.app-nav { justify-content: center; flex-wrap: wrap; gap: 8px; text-align: center; }
+.brand { justify-content: center; }
+.nav-actions { justify-content: center; }
+
+.container { justify-items: center; }
+.stats { justify-items: center; text-align: center; }
+.toolbar { justify-content: center; }
+.grid { justify-items: center; }
+
+.panel, .panel-header, .empty-state { text-align: center; justify-content: center; }
+
+label { text-align: center; }
+.form-section form { display: grid; justify-items: center; }
+.form-section form button { justify-self: center; }
+
+.search { justify-content: center; }
+.search input { text-align: center; }
+
+.list { justify-items: center; }
+.list li { justify-content: center; text-align: center; }
+
+.table-wrap { margin: 0 auto; }
+th, td { text-align: center; }
