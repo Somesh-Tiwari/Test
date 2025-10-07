@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#5C258D" />
+    <title>🏥 Hospital Management System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div id="app-bg" aria-hidden="true"></div>
+
+    <header class="app-nav">
+      <div class="brand">
+        <span class="logo">🏥</span>
+        <h1>Hospital Management</h1>
+      </div>
+      <div class="nav-actions">
+        <button id="refreshBtn" class="btn ghost" title="Refresh data" aria-label="Refresh data">⟳</button>
+        <button id="themeToggle" class="btn" title="Toggle theme" aria-label="Toggle theme">🌙</button>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="stats">
+        <div class="stat-card glass">
+          <div class="stat-label">Total Patients</div>
+          <div id="totalPatientsCounter" class="stat-value">0</div>
+        </div>
+        <div class="stat-card glass">
+          <div class="stat-label">In Queue</div>
+          <div id="queueCounter" class="stat-value">0</div>
+        </div>
+        <div class="stat-card glass">
+          <div class="stat-label">Last Updated</div>
+          <div id="lastUpdated" class="stat-value small">—</div>
+        </div>
+      </section>
+
+      <section class="toolbar glass">
+        <div class="search">
+          <span class="icon">🔎</span>
+          <input id="searchInput" type="search" placeholder="Search patients by name or disease..." />
+        </div>
+      </section>
+
+      <section class="grid">
+        <div class="panel form-section glass">
+          <h2>➕ Add Patient</h2>
+          <form id="patientForm" autocomplete="off" novalidate>
+            <label>
+              <span>Name</span>
+              <input type="text" id="pname" placeholder="Patient Name" required />
+            </label>
+            <label>
+              <span>Age</span>
+              <input type="number" id="age" placeholder="Age" min="0" required />
+            </label>
+            <label>
+              <span>Disease</span>
+              <input type="text" id="disease" placeholder="Disease" required />
+            </label>
+            <button class="btn primary" type="submit">Add Patient</button>
+          </form>
+        </div>
+
+        <div class="panel list-section glass">
+          <div class="panel-header">
+            <h2>🧾 Patient Queue</h2>
+            <span id="queueStatus" class="subtle"></span>
+          </div>
+          <ul id="queueList" class="list"></ul>
+          <div id="queueEmpty" class="empty-state" hidden>
+            <span>Queue is empty</span>
+          </div>
+        </div>
+
+        <div class="panel table-section glass">
+          <div class="panel-header">
+            <h2>📋 All Patients</h2>
+          </div>
+          <div class="table-wrap">
+            <table id="patientTable">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Age</th>
+                  <th>Disease</th>
+                  <th>Delete</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div id="tableEmpty" class="empty-state" hidden>
+            <span>No patients found</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div id="offlineBanner" class="banner" hidden>
+      <span>You're offline or the API is unavailable.</span>
+    </div>
+
+    <div id="toastContainer" class="toasts" aria-live="polite" aria-atomic="true"></div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
